@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/starkware-libs/starknet-specs/blob/master/api/release.md
+versioning:
+  scheme: semver-with-rc
+  current: 0.10.4-rc.0
+  discovery_method: starknet_specVersion
+  docs: https://github.com/starkware-libs/starknet-specs/blob/master/api/release.md
+  phases:
+  - draft: Work in progress; expect major changes (types/methods added, changed, removed). Tip of master is the current draft.
+  - release-candidate: Ready to implement, at least one implementation; only minor changes, no method add/remove; rc1, rc2, ...
+  - recommendation: Agreed version, expected to be implemented and operated by nodes.
+deprecation:
+  policy_url: https://github.com/starkware-libs/starknet-specs/blob/master/api/release.md
+  summary: >-
+    Methods and types may be added, changed, or removed across draft/RC cycles;
+    a release candidate must sit a minimum of 7 working days before becoming a
+    recommendation. Deprecations and removals are governed through the spec
+    release process and reviewed via pull requests on master.
+  sunset_header: false
+sla:
+  summary: No StarkWare-published API SLA; uptime is a function of the node/RPC provider operating the endpoint.
+status_page: null
+deprecated_operations: []

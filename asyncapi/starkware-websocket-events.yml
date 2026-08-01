@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: derived
+spec_type: Webhooks
+source: openrpc/starkware-starknet_ws_api.json
+summary: >-
+  Starknet exposes a real-time event surface via a JSON-RPC WebSocket API
+  (spec 0.10.4-rc.0). Clients subscribe to on-chain streams and receive
+  subscription notifications; this is the provider's push/streaming surface
+  (not HTTP webhooks, not a published AsyncAPI document). Captured here as an
+  event catalog so the event surface is represented.
+transport: websocket-jsonrpc
+subscriptions:
+- name: newHeads
+  subscribe_method: starknet_subscribeNewHeads
+  notification: starknet_subscriptionNewHeads
+  description: New block headers as they are produced.
+- name: events
+  subscribe_method: starknet_subscribeEvents
+  notification: starknet_subscriptionEvents
+  description: Contract events matching an address/keys filter.
+- name: transactionStatus
+  subscribe_method: starknet_subscribeTransactionStatus
+  notification: starknet_subscriptionTransactionStatus
+  description: Status transitions for a given transaction hash.
+- name: newTransactionReceipts
+  subscribe_method: starknet_subscribeNewTransactionReceipts
+  notification: starknet_subscriptionNewTransactionReceipts
+  description: Receipts for newly included transactions.
+- name: newTransactions
+  subscribe_method: starknet_subscribeNewTransactions
+  notification: starknet_subscriptionNewTransaction
+  description: Newly received transactions (mempool).
+control:
+- {name: reorg, notification: starknet_subscriptionReorg, description: Chain reorganization notice on an active subscription.}
+- {name: unsubscribe, method: starknet_unsubscribe, description: Cancel an active subscription by id.}

@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: generated
+source: openrpc/starkware-starknet_api_openrpc.json , provider skills
+skills:
+- file: starkware-install-starknet-mcp.md
+  name: Install and configure the Starknet MCP server for Claude Code
+  method: searched
+  source: https://github.com/starkware-libs/starknet-specs/blob/master/.claude/skills/install-starknet-mcp/SKILL.md
+  api: mcp/starkware-mcp.yml
+  operations: []
+- file: starkware-read-block-and-events.md
+  name: Read Starknet blocks, transactions, and events over JSON-RPC
+  method: generated
+  api: openrpc/starkware-starknet_api_openrpc.json
+  operations: [starknet_blockNumber, starknet_getBlockWithTxs, starknet_getTransactionReceipt, starknet_getEvents]
+- file: starkware-call-and-estimate.md
+  name: Call a contract and estimate fees before submitting a transaction
+  method: generated
+  api: openrpc/starkware-starknet_api_openrpc.json
+  operations: [starknet_call, starknet_getNonce, starknet_estimateFee, starknet_addInvokeTransaction, starknet_getTransactionStatus]

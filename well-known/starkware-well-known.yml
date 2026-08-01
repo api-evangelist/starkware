@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: probed
+source: live probe of /.well-known/* on StarkWare/Starknet hosts
+result: none
+hosts:
+- host: https://starkware.co
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://docs.starknet.io
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.starknet.io
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+notes: >-
+  No /.well-known documents were served (all 404). A public llms.txt IS served at
+  https://docs.starknet.io/llms.txt (saved to llms/starkware-llms.txt). No
+  WellKnown pointer is wired in apis.yml because no discovery document was found.

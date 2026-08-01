@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: derived
+source: openrpc/starkware-starknet_api_openrpc.json
+notes: >-
+  Entity graph derived from the Starknet Node OpenRPC component schemas (116
+  schemas). Core on-chain entities are blocks, transactions, receipts, events,
+  contract classes, and state updates, keyed by felt-typed identifiers.
+identifiers:
+  FELT: Field element, 0x-prefixed hex less than the Stark prime; base type for hashes, addresses, storage keys.
+  BLOCK_HASH: felt
+  BLOCK_NUMBER: integer
+  TXN_HASH: felt
+  ADDRESS: felt (contract address)
+  CLASS_HASH: felt
+  STORAGE_KEY: felt
+entities:
+- name: Block
+  schemas: [BLOCK_WITH_TX_HASHES, BLOCK_WITH_TXS, BLOCK_WITH_RECEIPTS, BLOCK_HEADER]
+  key: block_hash / block_number
+  relationships:
+  - {type: has_many, target: Transaction, via: transactions}
+  - {type: has_one, target: StateUpdate, via: block_hash}
+- name: Transaction
+  schemas: [TXN, TXN_WITH_HASH, INVOKE_TXN, DECLARE_TXN, DEPLOY_ACCOUNT_TXN, L1_HANDLER_TXN]
+  key: transaction_hash
+  relationships:
+  - {type: belongs_to, target: Block, via: block_hash}
+  - {type: has_one, target: Receipt, via: transaction_hash}
+  - {type: belongs_to, target: Contract, via: sender_address}
+- name: Receipt
+  schemas: [TXN_RECEIPT, COMMON_RECEIPT_PROPERTIES]
+  key: transaction_hash
+  relationships:
+  - {type: belongs_to, target: Transaction, via: transaction_hash}
+  - {type: has_many, target: Event, via: events}
+- name: Event
+  schemas: [EVENT, EMITTED_EVENT, EVENT_CONTENT, EVENTS_CHUNK]
+  key: (block, transaction_hash, from_address)
+  relationships:
+  - {type: belongs_to, target: Contract, via: from_address}
+  - {type: belongs_to, target: Transaction, via: transaction_hash}
+- name: Contract
+  schemas: [DEPLOYED_CONTRACT_ITEM]
+  key: contract_address
+  relationships:
+  - {type: has_one, target: ContractClass, via: class_hash}
+- name: ContractClass
+  schemas: [CONTRACT_CLASS, DEPRECATED_CONTRACT_CLASS]
+  key: class_hash
+- name: StateUpdate
+  schemas: [STATE_UPDATE, STATE_DIFF, CONTRACT_STORAGE_DIFF_ITEM]
+  key: block_hash
+  relationships:
+  - {type: belongs_to, target: Block, via: block_hash}

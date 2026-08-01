@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.starknet.io/ , https://crates.io/crates/starkli
+clis:
+- name: starkli
+  description: >-
+    Blazing-fast command-line interface for Starknet, powered by starknet-rs.
+    The de-facto Starknet CLI for account, contract, and transaction operations.
+    Community-maintained (xJonathanLEI), widely referenced across Starknet docs.
+  official: false
+  install:
+  - method: install-script
+    command: curl https://get.starkli.sh | sh && starkliup
+  - method: cargo
+    command: cargo install --locked starkli
+  package: crates.io/starkli
+  command_groups:
+  - name: account
+    summary: Manage Starknet account contracts (deploy, fetch, oz init).
+  - name: signer
+    summary: Manage signers and keystores.
+  - name: declare
+    summary: Declare a Cairo contract class on Starknet.
+  - name: deploy
+    summary: Deploy a contract instance from a declared class.
+  - name: invoke
+    summary: Send an invoke transaction to a contract.
+  - name: call
+    summary: Call a contract function (read-only).
+  - name: transaction
+    summary: Fetch and inspect transactions and receipts.
+  - name: block
+    summary: Query blocks and block metadata.
+  key_flows:
+  - Create/deploy an account, declare a class, then deploy and invoke a contract against a JSON-RPC endpoint.
+notes: >-
+  Starknet Foundry additionally ships sncast, a CLI for interacting with
+  Starknet from the Foundry toolchain; starkli is the CLI most directly aligned
+  with the Node JSON-RPC API cataloged here.

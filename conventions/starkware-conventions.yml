@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: derived
+source: openrpc/starkware-starknet_api_openrpc.json , https://docs.starknet.io/
+protocol:
+  style: JSON-RPC 2.0
+  spec_format: OpenRPC 1.0.0-rc1
+  spec_version: 0.10.4-rc.0
+  transport: [http, websocket]
+authentication:
+  summary: No API-level auth in spec; node/provider-specific. See authentication/starkware-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    Starknet does not use an idempotency-key header. Replay protection and
+    exactly-once semantics for write transactions are provided by the account
+    nonce (starknet_getNonce); resubmitting a transaction with the same nonce is
+    rejected (error 59 DUPLICATE_TX / 52 INVALID_TRANSACTION_NONCE).
+pagination:
+  style: cursor
+  applies_to: [starknet_getEvents]
+  request_fields:
+  - chunk_size (max page size; error 31 PAGE_SIZE_TOO_BIG if exceeded)
+  - continuation_token (opaque cursor; error 33 INVALID_CONTINUATION_TOKEN if invalid)
+  response_fields:
+  - events
+  - continuation_token
+block_references:
+  parameter: block_id
+  forms:
+  - block_hash (0x-prefixed felt)
+  - block_number (integer)
+  - block_tag ("latest" | "pre_confirmed")
+identifiers:
+  felt: FELT (field element, 0x-prefixed hex < Stark prime)
+  address: ADDRESS / contract address (felt)
+  txn_hash: TXN_HASH (felt)
+  chain_id: CHAIN_ID (0x-prefixed hex, e.g. SN_MAIN=0x534e5f4d41494e, SN_SEPOLIA=0x534e5f5345504f4c4941)
+error_envelope:
+  style: json-rpc-error
+  shape: '{ jsonrpc: "2.0", id, error: { code: <int>, message: <string>, data?: <any> } }'
+  reference: errors/starkware-problem-types.yml
+versioning:
+  scheme: semver-with-rc
+  method: starknet_specVersion returns the implemented spec version
+  policy: lifecycle/starkware-lifecycle.yml
+rate_limiting:
+  summary: Not specified by StarkWare; enforced by the node/RPC provider operating the endpoint.
+cross_links:
+  errors: errors/starkware-problem-types.yml
+  lifecycle: lifecycle/starkware-lifecycle.yml
+  authentication: authentication/starkware-authentication.yml
+  events: asyncapi/starkware-websocket-events.yml

@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.starknet.io/ , openrpc/starkware-starknet_api_openrpc.json
+summary:
+  types: [none, api-key-at-provider]
+  api_key_in: [header]
+  oauth2_flows: []
+  notes: >-
+    The Starknet Node JSON-RPC API defines no securitySchemes in its OpenRPC
+    spec: methods are served by full nodes (Juno, Pathfinder, etc.). Public and
+    self-hosted nodes are typically unauthenticated; commercial RPC providers
+    (Infura, Alchemy, Nethermind, Blast, etc.) gate the same JSON-RPC surface
+    behind a provider-issued API key embedded in the endpoint URL or an
+    x-api-key header. Write and account operations are authorized cryptographically
+    at the protocol layer: transactions are signed with the account's key and
+    replay-protected by an account nonce (Starknet native account abstraction),
+    not by an API credential.
+schemes:
+- name: node-endpoint
+  type: none
+  scheme: json-rpc
+  description: >-
+    Direct JSON-RPC 2.0 to a Starknet full node. No API-level authentication in
+    the spec; access control is deployment-specific.
+  sources: [openrpc/starkware-starknet_api_openrpc.json]
+- name: provider-api-key
+  type: apiKey
+  in: header
+  parameter_name: x-api-key
+  description: >-
+    Commercial RPC providers front the Starknet JSON-RPC methods with an issued
+    API key (URL path token or header). Not part of the StarkWare spec; documented
+    per provider.
+  sources: [docs]
+- name: account-signature
+  type: protocol
+  scheme: ecdsa/account-abstraction
+  description: >-
+    Write methods (addInvoke/addDeclare/addDeployAccount) require a transaction
+    signed by the Starknet account contract; validation and nonce replay
+    protection happen on-chain, not via API auth.
+  sources: [openrpc/starkware-starknet_write_api.json]

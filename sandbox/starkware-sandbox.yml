@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.starknet.io/build/quickstart/devnet.md , https://docs.starknet.io/build/quickstart/sepolia.md
+summary: >-
+  Starknet provides test environments rather than test credentials: a public
+  test network (Sepolia) and a local devnet for deterministic testing. Contract
+  development follows a devnet -> Sepolia -> mainnet path documented in the
+  Starknet quickstart.
+networks:
+- name: Starknet Sepolia (testnet)
+  kind: public-testnet
+  chain_id: SN_SEPOLIA
+  chain_id_hex: '0x534e5f5345504f4c4941'
+  purpose: Public testnet for deploying and verifying contracts before mainnet.
+  docs: https://docs.starknet.io/build/quickstart/sepolia.md
+- name: Starknet Devnet
+  kind: local-devnet
+  purpose: Local, deterministic Starknet node (starknet-devnet) for fast local testing with pre-funded accounts.
+  docs: https://docs.starknet.io/build/quickstart/devnet.md
+- name: Starknet Mainnet
+  kind: production
+  chain_id: SN_MAIN
+  chain_id_hex: '0x534e5f4d41494e'
+notes: >-
+  Devnet ships pre-funded predeployed accounts for local testing; Sepolia funds
+  are obtained from public faucets. StarkWare does not publish fixed "magic" test
+  values in the JSON-RPC spec.

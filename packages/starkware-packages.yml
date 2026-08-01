@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.starknet.io/ , npm, PyPI, crates.io
+packages:
+- language: javascript
+  registry: npm
+  name: starknet
+  url: https://www.npmjs.com/package/starknet
+  version: 10.0.2
+  install: npm install starknet
+  repository: https://github.com/starknet-io/starknet.js
+  description: JavaScript/TypeScript library for Starknet (starknet.js).
+  official: true
+- language: python
+  registry: pypi
+  name: starknet-py
+  url: https://pypi.org/project/starknet-py/
+  version: 0.30.0
+  install: pip install starknet-py
+  description: Python SDK for Starknet (starknet.py).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@starkware-industries/starkex-js"
+  url: https://www.npmjs.com/package/@starkware-industries/starkex-js
+  version: 0.1.0
+  install: npm install @starkware-industries/starkex-js
+  description: First-party JavaScript wrapper around the StarkEx API for Node and browser.
+  official: true
+- language: rust
+  registry: crates.io
+  name: starkli
+  url: https://crates.io/crates/starkli
+  version: 0.1.8
+  install: cargo install starkli
+  description: Command-line interface for Starknet, powered by starknet-rs. Community-maintained (xJonathanLEI), the de-facto Starknet CLI.
+  official: false

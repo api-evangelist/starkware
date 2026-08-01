@@ -1,8 +1,17 @@
 aid: starkware
 name: Starkware
-description: Starkware is a company surfaced as a portfolio company of dcvc, multicoin-capital, pantera-capital,
-  paradigm, wing-venture-capital and added to the API Evangelist network as a stub for enrichment. This
-  profile is a lead awaiting the enrichment pipeline.
+description: >-
+  StarkWare Industries builds STARK-proof (Scalable Transparent ARgument of
+  Knowledge) blockchain scaling technology for Ethereum. Its flagship products
+  are Starknet, a permissionless decentralized validity-rollup (ZK-Rollup) where
+  developers deploy Cairo smart contracts, and StarkEx, an application-specific
+  scaling engine for exchanges (spot, perpetual, NFT, and payments). The
+  developer surface centers on the Starknet Node JSON-RPC API (read, write,
+  trace, and WebSocket methods specified in OpenRPC), a Wallet JSON-RPC API, a
+  Proving API, StarkEx REST gateways, first-party SDKs (starknet.js, starknet.py,
+  starkex-js), the starkli CLI, and the Cairo programming language and prover
+  stack (Stwo, Cairo VM). This profile catalogs those machine-readable specs and
+  developer artifacts for the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/starkware/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,17 +23,151 @@ x-backed-by:
 - wing-venture-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://github.com/starkware-libs.png
 tags:
 - Company
-apis: []
+- Blockchain
+- Ethereum
+- Layer 2
+- ZK-Rollup
+- Zero-Knowledge Proofs
+- JSON-RPC
+- Cryptography
+- Cairo
+- Web3
+- Scaling
+- Starknet
+apis:
+- name: Starknet Node JSON-RPC API
+  description: >-
+    The Starknet full-node JSON-RPC API (OpenRPC), covering read methods
+    (blocks, transactions, state, classes, events, fees), write methods
+    (add invoke/declare/deploy-account transactions), trace methods, and a
+    WebSocket subscription API for new heads, events, and transaction status.
+    Spec version 0.10.4-rc.0.
+  humanURL: https://docs.starknet.io/
+  baseURL: https://docs.starknet.io/
+  properties:
+  - type: OpenRPC
+    name: Starknet Read API (OpenRPC)
+    url: openrpc/starkware-starknet_api_openrpc.json
+  - type: OpenRPC
+    name: Starknet Write API (OpenRPC)
+    url: openrpc/starkware-starknet_write_api.json
+  - type: OpenRPC
+    name: Starknet Trace API (OpenRPC)
+    url: openrpc/starkware-starknet_trace_api_openrpc.json
+  - type: OpenRPC
+    name: Starknet WebSocket API (OpenRPC)
+    url: openrpc/starkware-starknet_ws_api.json
+  - type: OpenRPC
+    name: Starknet Executables API (OpenRPC)
+    url: openrpc/starkware-starknet_executables.json
+  - type: OpenRPC
+    name: Starknet Metadata API (OpenRPC)
+    url: openrpc/starkware-starknet_metadata.json
+- name: Starknet Wallet JSON-RPC API
+  description: >-
+    The Starknet wallet JSON-RPC API (SNIP-based) that dApps use to talk to
+    browser/extension wallets: request accounts, permissions, chain switching,
+    typed-data signing, and submitting invoke/declare transactions.
+  humanURL: https://docs.starknet.io/
+  baseURL: https://docs.starknet.io/
+  properties:
+  - type: OpenRPC
+    name: Starknet Wallet API (OpenRPC)
+    url: openrpc/starkware-wallet_rpc.json
+- name: Starknet Proving API
+  description: >-
+    The Starknet proving JSON-RPC API for submitting transactions to be proven
+    by the STARK prover.
+  humanURL: https://docs.starknet.io/
+  baseURL: https://docs.starknet.io/
+  properties:
+  - type: OpenRPC
+    name: Starknet Proving API (OpenRPC)
+    url: openrpc/starkware-starknet_proving_api_openrpc.json
+- name: StarkEx REST API
+  description: >-
+    StarkEx application-specific scaling engine REST API for spot and perpetual
+    trading systems, exposing Gateway, Feeder Gateway, and Availability Gateway
+    endpoints plus documented error codes.
+  humanURL: http://docs.starkware.co/starkex/index.html
+  baseURL: http://docs.starkware.co/starkex/index.html
+common:
+- type: Website
+  url: https://starkware.co
+- type: DeveloperPortal
+  url: https://docs.starknet.io/
+- type: Documentation
+  url: https://docs.starknet.io/
+- type: APIReference
+  url: https://github.com/starkware-libs/starknet-specs
+- type: GettingStarted
+  url: https://www.starknet.io/developers/
+- type: Blog
+  url: https://starkware.co/blog/
+- type: GitHubOrganization
+  url: https://github.com/starkware-libs
+- type: Protobuf
+  name: Starknet P2P protocol buffers
+  url: grpc/_index.yml
+- type: Packages
+  url: packages/starkware-packages.yml
+- type: SDKs
+  url: packages/starkware-packages.yml
+- type: CLI
+  url: cli/starkware-cli.yml
+- type: MCPServer
+  url: mcp/starkware-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/starkware-authentication.yml
+- type: Conventions
+  url: conventions/starkware-conventions.yml
+- type: ErrorCatalog
+  url: errors/starkware-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/starkware-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/starkware-lifecycle.yml
+- type: ChangeLog
+  url: changelog/starkware-changelog.yml
+- type: Conformance
+  url: conformance/starkware-conformance.yml
+- type: DataModel
+  url: data-model/starkware-data-model.yml
+- type: Webhooks
+  url: asyncapi/starkware-websocket-events.yml
+- type: Sandbox
+  url: sandbox/starkware-sandbox.yml
+- type: DomainSecurity
+  url: security/starkware-domain-security.yml
+- type: LLMsTxt
+  url: llms/starkware-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://starkware.co
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 43
+  pass: local-v1

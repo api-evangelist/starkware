@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://github.com/starkware-libs/starknet-specs/tree/master/mcp
+server:
+  name: starknet
+  description: >-
+    Official StarkWare MCP (Model Context Protocol) server that exposes all
+    Starknet JSON-RPC v0.10.2+ read and trace methods as agent tools, letting an
+    assistant read blocks, transactions, state, classes, events, and traces from
+    a live Starknet node. Ships in the starknet-specs repo with a Claude Code
+    slash-command installer (/install-starknet-mcp).
+  transport: stdio
+  runtime: python
+  entrypoint: mcp/server.py
+  repository: https://github.com/starkware-libs/starknet-specs
+  install: claude mcp add --env STARKNET_RPC_URL=<your-rpc-url> starknet -- python mcp/server.py
+  config:
+  - name: STARKNET_RPC_URL
+    description: Starknet JSON-RPC endpoint URL (node implementing spec v0.10.2+).
+    required: true
+tools:
+- {name: starknet_blockNumber, description: Latest block number}
+- {name: starknet_blockHashAndNumber, description: Latest block hash and number}
+- {name: starknet_getBlockWithTxHashes, description: Block with transaction hashes}
+- {name: starknet_getBlockWithTxs, description: Block with full transactions}
+- {name: starknet_getBlockWithReceipts, description: Block with receipts}
+- {name: starknet_getBlockTransactionCount, description: Transaction count in a block}
+- {name: starknet_getTransactionByHash, description: Transaction by hash}
+- {name: starknet_getTransactionByBlockIdAndIndex, description: Transaction by block id and index}
+- {name: starknet_getTransactionStatus, description: Transaction status}
+- {name: starknet_getTransactionReceipt, description: Transaction receipt}
+- {name: starknet_getStateUpdate, description: State update for a block}
+- {name: starknet_getStorageAt, description: Contract storage value}
+- {name: starknet_getStorageProof, description: Storage proof}
+- {name: starknet_getNonce, description: Contract nonce}
+- {name: starknet_getClass, description: Contract class by hash}
+- {name: starknet_getClassHashAt, description: Class hash at address}
+- {name: starknet_getClassAt, description: Contract class at address}
+- {name: starknet_call, description: Call a contract function (read-only)}
+- {name: starknet_estimateFee, description: Estimate transaction fee}
+- {name: starknet_estimateMessageFee, description: Estimate L1->L2 message fee}
+- {name: starknet_getEvents, description: Query events with filter and pagination}
+- {name: starknet_getMessagesStatus, description: L1->L2 message status}
+- {name: starknet_traceTransaction, description: Execution trace of a transaction}
+- {name: starknet_simulateTransactions, description: Simulate transactions}
+- {name: starknet_traceBlockTransactions, description: Traces for all block transactions}
+- {name: starknet_specVersion, description: JSON-RPC spec version}
+- {name: starknet_chainId, description: Chain id}
+- {name: starknet_syncing, description: Node sync status}
+- {name: set_network, description: Switch the active RPC URL mid-conversation}
+- {name: get_network, description: Show the current RPC URL}

@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openrpc/starkware-starknet_api_openrpc.json ,
+  openrpc/starkware-starknet_ws_api.json
+standards:
+- id: json-rpc-2.0
+  conforms: true
+  evidence: All methods are JSON-RPC 2.0 request/response over HTTP.
+- id: openrpc-1.x
+  conforms: true
+  evidence: API described with OpenRPC 1.0.0-rc1 documents (api/*.json).
+- id: json-schema
+  conforms: true
+  evidence: OpenRPC components.schemas define request/response types via JSON Schema.
+- id: websocket-jsonrpc-subscriptions
+  conforms: true
+  evidence: starknet_ws_api defines subscribe/unsubscribe JSON-RPC methods over WebSocket.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the JSON-RPC error object (code/message/data), not application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securitySchemes; access is node/provider or protocol-signature based.
+- id: openapi
+  conforms: false
+  evidence: The API is JSON-RPC (OpenRPC), not REST/OpenAPI.

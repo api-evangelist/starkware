@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/starkware-libs/starknet-specs/tree/master/p2p/proto
+summary: >-
+  Protocol Buffers for the Starknet peer-to-peer network protocols (node sync,
+  mempool, consensus, class/state/receipt/transaction messages, discovery,
+  snapshot, capabilities). Saved verbatim from the starknet-specs repo. These
+  describe the node-to-node wire protocol, not a public gRPC service.
+files:
+- {file: starkware-capabilities.proto, source: p2p/proto/capabilities.proto}
+- {file: starkware-class.proto, source: p2p/proto/class.proto}
+- {file: starkware-common.proto, source: p2p/proto/common.proto}
+- {file: starkware-discovery.proto, source: p2p/proto/discovery.proto}
+- {file: starkware-snapshot.proto, source: p2p/proto/snapshot.proto}
+- {file: starkware-transaction.proto, source: p2p/proto/transaction.proto}
+- {file: starkware-consensus-consensus.proto, source: p2p/proto/consensus/consensus.proto}
+- {file: starkware-mempool-transaction.proto, source: p2p/proto/mempool/transaction.proto}
+- {file: starkware-sync-class.proto, source: p2p/proto/sync/class.proto}
+- {file: starkware-sync-common.proto, source: p2p/proto/sync/common.proto}
+- {file: starkware-sync-event.proto, source: p2p/proto/sync/event.proto}
+- {file: starkware-sync-header.proto, source: p2p/proto/sync/header.proto}
+- {file: starkware-sync-receipt.proto, source: p2p/proto/sync/receipt.proto}
+- {file: starkware-sync-state.proto, source: p2p/proto/sync/state.proto}
+- {file: starkware-sync-transaction.proto, source: p2p/proto/sync/transaction.proto}

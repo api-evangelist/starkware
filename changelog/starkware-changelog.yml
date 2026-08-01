@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://github.com/starkware-libs/starknet-specs/releases ,
+  https://github.com/starkware-libs/starknet-specs/blob/master/api/release.md
+scheme: semver-with-rc
+current_version: 0.10.4-rc.0
+docs: https://github.com/starkware-libs/starknet-specs/blob/master/api/release.md
+notes: >-
+  The Starknet Node API is versioned through the starknet-specs repository; each
+  spec version is tagged (semantic versioning, with rcN suffixes for release
+  candidates and no suffix for a recommendation). The tip of master is the
+  current working draft. The window below reflects the spec version cataloged in
+  this repo; the release list on GitHub is the source of truth.
+entries:
+- version: 0.10.4-rc.0
+  status: release-candidate
+  highlights:
+  - Read/Write/Trace/WebSocket JSON-RPC method sets at spec 0.10.4-rc.0.
+  - 25 read methods, 3 write methods, 3 trace methods, WebSocket subscription API.
+  breaking: unknown

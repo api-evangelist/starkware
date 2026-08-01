@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+format: json-rpc-error
+source: >-
+  openrpc/starkware-starknet_api_openrpc.json ,
+  openrpc/starkware-starknet_write_api.json ,
+  openrpc/starkware-starknet_trace_api_openrpc.json
+envelope: '{ jsonrpc: "2.0", id, error: { code, message, data? } }'
+problems:
+- {code: 1, name: FAILED_TO_RECEIVE_TXN, title: Failed to write transaction}
+- {code: 10, name: NO_TRACE_AVAILABLE, title: No trace available for transaction, has_data: true}
+- {code: 20, name: CONTRACT_NOT_FOUND, title: Contract not found}
+- {code: 21, name: ENTRYPOINT_NOT_FOUND, title: Requested entry point does not exist in the contract}
+- {code: 24, name: BLOCK_NOT_FOUND, title: Block not found}
+- {code: 27, name: INVALID_TXN_INDEX, title: Invalid transaction index in a block}
+- {code: 28, name: CLASS_HASH_NOT_FOUND, title: Class hash not found}
+- {code: 29, name: TXN_HASH_NOT_FOUND, title: Transaction hash not found}
+- {code: 31, name: PAGE_SIZE_TOO_BIG, title: Requested page size is too big}
+- {code: 32, name: NO_BLOCKS, title: There are no blocks}
+- {code: 33, name: INVALID_CONTINUATION_TOKEN, title: The supplied continuation token is invalid or unknown}
+- {code: 34, name: TOO_MANY_KEYS_IN_FILTER, title: Too many keys provided in a filter}
+- {code: 40, name: CONTRACT_ERROR, title: Contract error, has_data: true}
+- {code: 41, name: TRANSACTION_EXECUTION_ERROR, title: Transaction execution error, has_data: true}
+- {code: 42, name: STORAGE_PROOF_NOT_SUPPORTED, title: The node doesn't support storage proofs for blocks that are too far in the past}
+- {code: 51, name: CLASS_ALREADY_DECLARED, title: Class already declared}
+- {code: 52, name: INVALID_TRANSACTION_NONCE, title: Invalid transaction nonce, has_data: true}
+- {code: 53, name: INSUFFICIENT_RESOURCES_FOR_VALIDATE, title: The transaction's resources don't cover validation or the minimal transaction fee}
+- {code: 54, name: INSUFFICIENT_ACCOUNT_BALANCE, title: Account balance is smaller than the transaction's maximal fee}
+- {code: 55, name: VALIDATION_FAILURE, title: Account validation failed, has_data: true}
+- {code: 56, name: COMPILATION_FAILED, title: Compilation failed, has_data: true}
+- {code: 57, name: CONTRACT_CLASS_SIZE_IS_TOO_LARGE, title: Contract class size is too large}
+- {code: 58, name: NON_ACCOUNT, title: Sender address is not an account contract}
+- {code: 59, name: DUPLICATE_TX, title: A transaction with the same hash already exists in the mempool}
+- {code: 60, name: COMPILED_CLASS_HASH_MISMATCH, title: The compiled class hash did not match the one supplied}
+- {code: 61, name: UNSUPPORTED_TX_VERSION, title: The transaction version is not supported}
+- {code: 62, name: UNSUPPORTED_CONTRACT_CLASS_VERSION, title: The contract class version is not supported}
+- {code: 63, name: UNEXPECTED_ERROR, title: An unexpected error occurred, has_data: true}
+- {code: 64, name: REPLACEMENT_TRANSACTION_UNDERPRICED, title: Replacement transaction is underpriced}
+- {code: 65, name: FEE_BELOW_MINIMUM, title: Transaction fee below minimum}
+- {code: 69, name: INVALID_SUBSCRIPTION_BLOCK_TAG, title: The proof field in the invoke v3 transaction is invalid}
