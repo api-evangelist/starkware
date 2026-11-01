@@ -64,6 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Starkware is a company surfaced as a portfolio company of dcvc, multicoin-capital, pantera-capital, paradigm, wing-venture-capital and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+StarkWare Industries builds STARK-proof (Scalable Transparent ARgument of Knowledge) blockchain scaling technology for Ethereum. Its flagship products are Starknet, a permissionless decentralized validity-rollup (ZK-Rollup) where developers deploy Cairo smart contracts, and StarkEx, an application-specific scaling engine for exchanges (spot, perpetual, NFT, and payments). The developer surface centers on the Starknet Node JSON-RPC API (read, write, trace, and WebSocket methods specified in OpenRPC), a Wallet JSON-RPC API, a Proving API, StarkEx REST gateways, first-party SDKs (starknet.js, starknet.py, starkex-js), the starkli CLI, and the Cairo programming language and prover stack (Stwo, Cairo VM). This profile catalogs those machine-readable specs and developer artifacts for the API Evangelist network.
 
-Backed by: dcvc, multicoin-capital, pantera-capital, paradigm, wing-venture-capital — https://starkware.co
+**Areas:** Company · Blockchain · Ethereum · Layer 2 · ZK-Rollup · Zero-Knowledge Proofs · JSON-RPC · Cryptography · Cairo · Web3 · Scaling · Starknet
+
+## Starkware on APIs.io
+
+Everything profiled for Starkware is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/starkware/](https://apis.io/providers/starkware/)** — or go straight to one of the APIs or properties below.
+
+### APIs (4)
+
+- [Starknet Node JSON-RPC API](https://apis.io/apis/starkware/starknet-node-json-rpc-api/) — The Starknet full-node JSON-RPC API (OpenRPC), covering read methods (blocks, transactions, state, classes, events, fees), write methods (add…
+- [Starknet Wallet JSON-RPC API](https://apis.io/apis/starkware/starknet-wallet-json-rpc-api/) — The Starknet wallet JSON-RPC API (SNIP-based) that dApps use to talk to browser/extension wallets: request accounts, permissions, chain switching,…
+- [Starknet Proving API](https://apis.io/apis/starkware/starknet-proving-api/) — The Starknet proving JSON-RPC API for submitting transactions to be proven by the STARK prover.
+- [StarkEx REST API](https://apis.io/apis/starkware/starkex-rest-api/) — StarkEx application-specific scaling engine REST API for spot and perpetual trading systems, exposing Gateway, Feeder Gateway, and Availability Gateway…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Starkware Websocket Events](https://apis.io/asyncapis/starkware/starkware-websocket-events/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [starknet](https://apis.io/servers/starkware/starknet/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Starkware Authentication](https://apis.io/security/starkware/starkware-authentication/)
+- [Starkware Domain Security](https://apis.io/security/starkware/starkware-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://starkware.co)
+- [Documentation](https://docs.starknet.io/)
+- [Getting started](https://www.starknet.io/developers/)
+- [API reference](https://github.com/starkware-libs/starknet-specs)
+- [Blog](https://starkware.co/blog/)
+- [GitHub](https://github.com/starkware-libs)
+
+## API Evangelist rating
+
+**Kin Score 37.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 76.7 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 75.6 |
+| Access clarity | 0.0 |
+
+**Agent readiness 21.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/starkware/](https://apis.io/providers/starkware/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Starkware: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/starkware/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
